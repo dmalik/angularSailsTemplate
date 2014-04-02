@@ -186,7 +186,6 @@ collection.factory('collectionUtils', function () {
               }
             }
 
-
             switch(parsedResult.status){
               case 404:
                 return sailsDeferredRequest.reject(new Error('404: Not found'));

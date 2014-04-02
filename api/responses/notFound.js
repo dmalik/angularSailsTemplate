@@ -10,7 +10,6 @@
  */
 
 module.exports = function notFound() {
-
   // Get access to `req`, `res`, `sails`
   var req = this.req;
   var res = this.res;
@@ -33,8 +32,8 @@ module.exports = function notFound() {
     if (err) {
       return res.json(result, result.status);
     }
-
     // Otherwise, serve the `views/404.*` page
     res.render(viewFilePath);
+
   });
 };
