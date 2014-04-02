@@ -29,8 +29,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dustinmalik/angularSailsTemplate.git"
+    "url": "git://github.com/dmalik/angularSailsTemplate.git"
   },
-  "author": "dustinmalik",
+  "author": "dmalik",
   "license": ""
 }
