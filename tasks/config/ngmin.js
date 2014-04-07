@@ -2,8 +2,8 @@ module.exports = function (grunt) {
 
     grunt.config.set('ngmin', {
         dist: {
-            src: ['.tmp/public/concat/scripts.css'],
-            dest: '.tmp/public/concat/scripts.css'
+            src: ['.tmp/public/concat/scripts.js'],
+            dest: '.tmp/public/concat/scripts.js'
         }
     });
 
