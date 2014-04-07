@@ -42,6 +42,20 @@ module.exports = function(grunt) {
             }
         },
 
+        devJs3: {
+            options: {
+                startTag: '<!--IE9-->',
+                endTag: '<!--END IE9-->',
+                fileTmpl: '<!--[if lt IE 9]><script src="%s"></script><![endif]-->',
+                appRoot: '.tmp/public'
+            },
+            files: {
+                '.tmp/public/**/*.html': require('../pipeline').scripts,
+                'views/**/*.html': require('../pipeline').scripts,
+                'views/**/*.ejs': require('../pipeline').scripts
+            }
+        },
+
 		devJsRelative1: {
 			options: {
 				startTag: '<!--VENDOR-->',
@@ -62,6 +76,21 @@ module.exports = function(grunt) {
                 startTag: '<!--SCRIPTS-->',
                 endTag: '<!--SCRIPTS END-->',
                 fileTmpl: '<script src="%s"></script>',
+                appRoot: '.tmp/public',
+                relative: true
+            },
+            files: {
+                '.tmp/public/**/*.html': require('../pipeline').scripts,
+                'views/**/*.html': require('../pipeline').scripts,
+                'views/**/*.ejs': require('../pipeline').scripts
+            }
+        },
+
+        devJsRelative3: {
+            options: {
+                startTag: '<!--IE9-->',
+                endTag: '<!--END IE9-->',
+                fileTmpl: '<!--[if lt IE 9]><script src="%s"></script><![endif]-->',
                 appRoot: '.tmp/public',
                 relative: true
             },
@@ -100,6 +129,20 @@ module.exports = function(grunt) {
             }
         },
 
+        prodJs3: {
+            options: {
+                startTag: '<!--IE9-->',
+                endTag: '<!--END IE9-->',
+                fileTmpl: '<!--[if lt IE 9]><script src="%s"></script><![endif]-->',
+                appRoot: '.tmp/public'
+            },
+            files: {
+                '.tmp/public/**/*.html': ['.tmp/public/min/*.ie9.js'],
+                'views/**/*.html': ['.tmp/public/min/*.ie9.js'],
+                'views/**/*.ejs': ['.tmp/public/min/*.ie9.js']
+            }
+        },
+
 		prodJsRelative1: {
 			options: {
 				startTag: '<!--VENDOR-->',
@@ -127,6 +170,21 @@ module.exports = function(grunt) {
                 '.tmp/public/**/*.html': ['.tmp/public/min/*.scripts.js'],
                 'views/**/*.html': ['.tmp/public/min/*.scripts.js'],
                 'views/**/*.ejs': ['.tmp/public/min/*.scripts.js']
+            }
+        },
+
+        prodJsRelative3: {
+            options: {
+                startTag: '<!--IE9-->',
+                endTag: '<!--END IE9-->',
+                fileTmpl: '<!--[if lt IE 9]><script src="%s"></script><![endif]-->',
+                appRoot: '.tmp/public',
+                relative: true
+            },
+            files: {
+                '.tmp/public/**/*.html': ['.tmp/public/min/*.ie9.js'],
+                'views/**/*.html': ['.tmp/public/min/*.ie9.js'],
+                'views/**/*.ejs': ['.tmp/public/min/*.ie9.js']
             }
         },
 

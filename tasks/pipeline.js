@@ -44,6 +44,14 @@ var scripts = [
     'scripts/services/**/.js'
 ];
 
+var ie9 = [
+
+    // linked in the proper order
+
+    'bower_components/es5-shim/es5-shim.js',
+    'bower_components/json3/lib/json3.min.js'
+];
+
 
 // Client-side HTML templates are injected using the sources below
 // The ordering of these templates shouldn't matter.
@@ -69,6 +77,9 @@ module.exports.vendor = vendor.map(function (path) {
     return '.tmp/public/' + path;
 });
 module.exports.scripts = scripts.map(function (path) {
+    return '.tmp/public/' + path;
+});
+module.exports.ie9 = ie9.map(function (path) {
     return '.tmp/public/' + path;
 });
 module.exports.templateFilesToInject = templateFilesToInject.map(function (path) {

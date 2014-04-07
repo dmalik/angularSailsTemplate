@@ -21,6 +21,10 @@ module.exports = function(grunt) {
             src: require('../pipeline').scripts,
             dest: '.tmp/public/concat/scripts.js'
         },
+        js3: {
+            src: require('../pipeline').scripts,
+            dest: '.tmp/public/concat/ie9.js'
+        },
 		css: {
 			src: require('../pipeline').cssFilesToInject,
 			dest: '.tmp/public/concat/styles.css'
