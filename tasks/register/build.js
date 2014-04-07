@@ -6,8 +6,8 @@ module.exports = function (grunt) {
         'uglify',
         'cssmin',
         'rev',
-        'htmlmin',
 		'linkAssetsBuildProd',
+        'htmlmin',
 		'clean:build',
 		'copy:build'
 	]);
