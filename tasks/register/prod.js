@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 		'sails-linker:prodJs1',
         'sails-linker:prodJs2',
 		'sails-linker:prodStyles',
-		'sails-linker:devTpl'
+		'sails-linker:devTpl',
+        'htmlmin'
 	]);
 };
