@@ -14,63 +14,121 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('sails-linker', {
-		devJs: {
+		devJs1: {
 			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
+				startTag: '<!--VENDOR-->',
+				endTag: '<!--VENDOR END-->',
 				fileTmpl: '<script src="%s"></script>',
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.ejs': require('../pipeline').jsFilesToInject
+				'.tmp/public/**/*.html': require('../pipeline').vendor,
+				'views/**/*.html': require('../pipeline').vendor,
+				'views/**/*.ejs': require('../pipeline').vendor
 			}
 		},
 
-		devJsRelative: {
+        devJs2: {
+            options: {
+                startTag: '<!--SCRIPTS-->',
+                endTag: '<!--SCRIPTS END-->',
+                fileTmpl: '<script src="%s"></script>',
+                appRoot: '.tmp/public'
+            },
+            files: {
+                '.tmp/public/**/*.html': require('../pipeline').scripts,
+                'views/**/*.html': require('../pipeline').scripts,
+                'views/**/*.ejs': require('../pipeline').scripts
+            }
+        },
+
+		devJsRelative1: {
 			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
+				startTag: '<!--VENDOR-->',
+				endTag: '<!--VENDOR END-->',
 				fileTmpl: '<script src="%s"></script>',
 				appRoot: '.tmp/public',
 				relative: true
 			},
 			files: {
-				'.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.ejs': require('../pipeline').jsFilesToInject
+				'.tmp/public/**/*.html': require('../pipeline').vendor,
+				'views/**/*.html': require('../pipeline').vendor,
+				'views/**/*.ejs': require('../pipeline').vendor
 			}
 		},
 
-		prodJs: {
+        devJsRelative2: {
+            options: {
+                startTag: '<!--SCRIPTS-->',
+                endTag: '<!--SCRIPTS END-->',
+                fileTmpl: '<script src="%s"></script>',
+                appRoot: '.tmp/public',
+                relative: true
+            },
+            files: {
+                '.tmp/public/**/*.html': require('../pipeline').scripts,
+                'views/**/*.html': require('../pipeline').scripts,
+                'views/**/*.ejs': require('../pipeline').scripts
+            }
+        },
+
+		prodJs1: {
 			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
+				startTag: '<!--VENDOR-->',
+				endTag: '<!--VENDOR END-->',
 				fileTmpl: '<script src="%s"></script>',
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.ejs': ['.tmp/public/min/production.js']
+				'.tmp/public/**/*.html': ['.tmp/public/min/*.vendor.js'],
+				'views/**/*.html': ['.tmp/public/min/*.vendor.js'],
+				'views/**/*.ejs': ['.tmp/public/min/*.vendor.js']
 			}
 		},
 
-		prodJsRelative: {
+        prodJs2: {
+            options: {
+                startTag: '<!--SCRIPTS-->',
+                endTag: '<!--SCRIPTS END-->',
+                fileTmpl: '<script src="%s"></script>',
+                appRoot: '.tmp/public'
+            },
+            files: {
+                '.tmp/public/**/*.html': ['.tmp/public/min/*.scripts.js'],
+                'views/**/*.html': ['.tmp/public/min/*.scripts.js'],
+                'views/**/*.ejs': ['.tmp/public/min/*.scripts.js']
+            }
+        },
+
+		prodJsRelative1: {
 			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
+				startTag: '<!--VENDOR-->',
+				endTag: '<!--VENDOR END-->',
 				fileTmpl: '<script src="%s"></script>',
 				appRoot: '.tmp/public',
 				relative: true
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.ejs': ['.tmp/public/min/production.js']
+				'.tmp/public/**/*.html': ['.tmp/public/min/*.vendor.js'],
+				'views/**/*.html': ['.tmp/public/min/*.vendor.js'],
+				'views/**/*.ejs': ['.tmp/public/min/*.vendor.js']
 			}
 		},
+
+        prodJsRelative2: {
+            options: {
+                startTag: '<!--SCRIPTS-->',
+                endTag: '<!--SCRIPTS END-->',
+                fileTmpl: '<script src="%s"></script>',
+                appRoot: '.tmp/public',
+                relative: true
+            },
+            files: {
+                '.tmp/public/**/*.html': ['.tmp/public/min/*.scripts.js'],
+                'views/**/*.html': ['.tmp/public/min/*.scripts.js'],
+                'views/**/*.ejs': ['.tmp/public/min/*.scripts.js']
+            }
+        },
 
 		devStyles: {
 			options: {
@@ -111,9 +169,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.css'],
-				'views/**/*.html': ['.tmp/public/min/production.css'],
-				'views/**/*.ejs': ['.tmp/public/min/production.css']
+				'.tmp/public/index.html': ['.tmp/public/min/*.css'],
+				'views/**/*.html': ['.tmp/public/min/*.css'],
+				'views/**/*.ejs': ['.tmp/public/min/*.css']
 			}
 		},
 
@@ -126,9 +184,9 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.css'],
-				'views/**/*.html': ['.tmp/public/min/production.css'],
-				'views/**/*.ejs': ['.tmp/public/min/production.css']
+				'.tmp/public/index.html': ['.tmp/public/min/*.css'],
+				'views/**/*.html': ['.tmp/public/min/*.css'],
+				'views/**/*.ejs': ['.tmp/public/min/*.css']
 			}
 		},
 

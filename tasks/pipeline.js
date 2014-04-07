@@ -15,32 +15,33 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+    'styles/**/*.css'
 ];
 
 
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
-var jsFilesToInject = [
-
-    // Below, as a demonstration, you'll see the built-in dependencies
-    // linked in the proper order order
-    // *->    put other dependencies here   <-*
-    'bower_components/angular/angular.min.js',
+var vendor = [
+    'bower_components/angular/angular.js',
+    'bower_components/angular-resource/angular-resource.js',
+    'bower_components/angular-cookies/angular-cookies.js',
+    'bower_components/angular-sanitize/angular-sanitize.js',
+    'bower_components/angular-route/angular-route.js',
     'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    'bower_components/angular-ui-router/release/angular-ui-router.js',
-    'bower_components/socket.io-client/dist/socket.io.min.js',
-    'bower_components/lodash/dist/lodash.js',
-    'bower_components/moment/moment.js',
-    'bower_components/angular-moment/angular-moment.js',
-    'bower_components/angular-translate/angular-translate.js',
-    'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-    'scripts/deps/socket.io.js',
-    'scripts/deps/angularSails.js',
-    // All of the rest of your app scripts imported here
+    'sails_deps/socket.io.js',
+    'sails_deps/angularSails.js'
+];
 
-  // All of the rest of your app scripts
-  'scripts/**/*.js'
+var scripts = [
+
+    // linked in the proper order
+
+    // All of the rest of your app scripts
+    'scripts/app.js',
+    'scripts/controllers/**/*.js',
+    'scripts/directives/**/*.js',
+    'scripts/filters/**/*.js',
+    'scripts/services/**/.js'
 ];
 
 
@@ -54,19 +55,22 @@ var jsFilesToInject = [
 // templates get spit out to the same file.  Be sure and check out `tasks/README.md`
 // for information on customizing and installing new tasks.
 var templateFilesToInject = [
-  'templates/**/*.html'
+    'templates/**/*.html'
 ];
 
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
 // they reside in the first place)
-module.exports.cssFilesToInject = cssFilesToInject.map(function(path) {
-  return '.tmp/public/' + path;
+module.exports.cssFilesToInject = cssFilesToInject.map(function (path) {
+    return '.tmp/public/' + path;
 });
-module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
-  return '.tmp/public/' + path;
+module.exports.vendor = vendor.map(function (path) {
+    return '.tmp/public/' + path;
 });
-module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
-  return 'assets/' + path;
+module.exports.scripts = scripts.map(function (path) {
+    return '.tmp/public/' + path;
+});
+module.exports.templateFilesToInject = templateFilesToInject.map(function (path) {
+    return 'assets/' + path;
 });

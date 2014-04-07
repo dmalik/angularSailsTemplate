@@ -1,5 +1,19 @@
-(function () {
+'use strict';
 
-    var app = angular.module('AngularSailsApp', ['angularSails.base']);
-
-})();
+angular
+    .module('AngularSailsApp', [
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngRoute'
+    ])
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    });

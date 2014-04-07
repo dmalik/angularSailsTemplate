@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 			files: [{
 				expand: true,
 				cwd: './assets',
-				src: ['**/*.!(sass|scss)'],
+                src: ['styles/*.!(sass|scss)','*.!(json)','scripts/**','images/**','views/**','bower_components/**/*','sails_deps/**/*'],
 				dest: '.tmp/public'
 			}]
 		},
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 			files: [{
 				expand: true,
 				cwd: '.tmp/public',
-				src: ['**/*'],
+				src: ['*.html','*.ico','*.txt','min/*','images/**','views/**'],
 				dest: 'www'
 			}]
 		}
