@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('AngularSailsApp', ['angularSails.base', 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'])
+angular.module('AngularSailsApp', ['sails.io', 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {

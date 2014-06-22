@@ -28,8 +28,11 @@ var vendor = [
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angular-route/angular-route.js',
     'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    'sails_deps/socket.io.js',
-    'sails_deps/angularSails.js'
+    'bower_components/angular-mocks/angular-mocks.js',
+    'bower_components/sails.io.js/sails.io.js',
+    'bower_components/greensock/src/minified/TweenLite.min.js',
+    'bower_components/greensock/src/minified/TimelineLite.min.js',
+    'sails_deps/ngsails.io.js'
 ];
 
 var scripts = [
